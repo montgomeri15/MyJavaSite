@@ -17,15 +17,17 @@ public class Constructor {
         return name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return name;
     }
 
     public String getPass() {
         return pass;
     }
 
-    public void setPass(String pass) {
+    public String setPass(String pass) {
         this.pass = pass;
+        return pass;
     }
 }

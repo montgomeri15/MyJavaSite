@@ -21,21 +21,6 @@ public class DbManager {
         return connection;
     }
 
-    /***Заполнение таблицы***/
-     public static void writeTable() throws SQLException {
-
-         String name = "111";
-         String password = "111";
-
-         PreparedStatement ps = connection.prepareStatement("INSERT INTO `table` (Name, Pass) VALUES (?, ?)");
-
-         ps.setString(1, name);
-         ps.setString(2, password);
-         ps.executeUpdate();
-
-         System.out.println("Таблица заполнена");
-    }
-
     /*** Читаем и добавляем в коллекцию***/
     public List<Constructor> readTable() throws SQLException {
 

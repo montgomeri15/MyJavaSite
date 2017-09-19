@@ -6,8 +6,18 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/com.NewServlet</url-pattern>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegServlet</servlet-name>
+        <servlet-class>com.RegServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegServlet</servlet-name>
+        <url-pattern>/RegServlet</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

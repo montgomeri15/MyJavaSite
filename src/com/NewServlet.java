@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,23 +23,18 @@ public class NewServlet extends HttpServlet {
         DbManager db = new DbManager();
         Connection conn = db.getConnection();
 
-        db.writeTable();
-        List<Constructor> list = db.readTable();
+        //db.writeTable();
+        //List<Constructor> list = db.readTable();
 
-        String d = list.get(1).getName().toString();
-        System.out.println(d);
+        //String d = list.get(1).getName().toString();
+        //System.out.println(d);
 
         String log = request.getParameter("login");
         String pass = request.getParameter("password");
 
         try (PrintWriter out = response.getWriter()) {
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
+            out.println("<!DOCTYPE html><html><head><title>Servlet NewServlet</title></head><body>");
 
             /*if(log.equals("Admin") && pass.equals("1111")){
                 out.println("<h1>Hello, " + request.getParameter("login") + "</h1>");
