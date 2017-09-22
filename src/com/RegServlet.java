@@ -16,8 +16,7 @@ import java.sql.SQLException;
 public class RegServlet extends HttpServlet {
 
     DbManager db = new DbManager();
-    Launcher launcher = new Launcher();
-    String username, password, password_again;
+    String username, password, passwordRepeat;
 
     public static Connection connection;
     public static PreparedStatement prepSt;
@@ -26,17 +25,17 @@ public class RegServlet extends HttpServlet {
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
 
-        PrintWriter out = response.getWriter();  //Вывод на экран в формате HTML и не только
+        PrintWriter out = response.getWriter();
 
         username = request.getParameter("username");
         password = request.getParameter("password");
-        password_again = request.getParameter("password_again");
+        passwordRepeat = request.getParameter("password_again");
 
         /***Подключение к БД***/
         connection = db.getConnection();
 
         /***Заполнение таблицы***/
-        if (password.equals(password_again)) {
+        if (password.equals(passwordRepeat)) {
             prepSt = connection.prepareStatement("INSERT INTO `table` (Name, Pass) VALUES (?, ?)");
             prepSt.setString(1, username);
             prepSt.setString(2, password);
@@ -44,7 +43,6 @@ public class RegServlet extends HttpServlet {
 
             out.println("<!DOCTYPE html><html><head><title>Successful registration</title></head><body>");
             out.println("<h1>Hello, " + username + "! </h1><br><h2>Registration completed successfully.</h1>");
-            out.println("<h2>Click it!</h2>");
             out.println("</body></html>");
         } else {
             out.println("<!DOCTYPE html><html><head><title>Unsuccessful registration</title></head><body>");
@@ -68,8 +66,6 @@ public class RegServlet extends HttpServlet {
             } else{
                 out.println("<h1>Try again!</h1>");
             }*/
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

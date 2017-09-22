@@ -23,14 +23,16 @@ public class NewServlet extends HttpServlet {
         DbManager db = new DbManager();
         Connection conn = db.getConnection();
 
+
+
         //db.writeTable();
         //List<Constructor> list = db.readTable();
 
         //String d = list.get(1).getName().toString();
         //System.out.println(d);
 
-        String log = request.getParameter("login");
-        String pass = request.getParameter("password");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
 
         try (PrintWriter out = response.getWriter()) {
 
