@@ -1,0 +1,6 @@
+22-Sep-2017 23:40:22.656 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+22-Sep-2017 23:40:22.656 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+22-Sep-2017 23:42:26.220 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+22-Sep-2017 23:42:26.220 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+22-Sep-2017 23:45:02.906 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+22-Sep-2017 23:45:02.906 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()

@@ -18,6 +18,15 @@
         <url-pattern>/RegServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GameServlet</servlet-name>
+        <servlet-class>com.GameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GameServlet</servlet-name>
+        <url-pattern>/GameServlet</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

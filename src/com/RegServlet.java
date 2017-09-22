@@ -43,6 +43,7 @@ public class RegServlet extends HttpServlet {
 
             out.println("<!DOCTYPE html><html><head><title>Successful registration</title></head><body>");
             out.println("<h1>Hello, " + username + "! </h1><br><h2>Registration completed successfully.</h1>");
+            out.println("<br><a href=\"http://localhost:8080/index.html\"><h3>Click to login</h3></a>");
             out.println("</body></html>");
         } else {
             out.println("<!DOCTYPE html><html><head><title>Unsuccessful registration</title></head><body>");
@@ -50,9 +51,6 @@ public class RegServlet extends HttpServlet {
             out.println("<br><a href=\"http://localhost:8080/reg.html\">Try again.</a>");
             out.println("</body></html>");
         }
-
-        /***Считывание таблицы***/
-        db.readTable();
 
 
             /*if(user.equals("Admin") && pass.equals("1111")){

@@ -15,43 +15,44 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NewServlet extends HttpServlet {
 
+    DbManager db = new DbManager();
+
+    public static Connection connection;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
 
-        //Добавляем БД-менеджер
-        DbManager db = new DbManager();
-        Connection conn = db.getConnection();
-
-
-
-        //db.writeTable();
-        //List<Constructor> list = db.readTable();
-
-        //String d = list.get(1).getName().toString();
-        //System.out.println(d);
+        PrintWriter out = response.getWriter();
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-        try (PrintWriter out = response.getWriter()) {
+        /***Подключение к БД***/
+        connection = db.getConnection();
 
-            out.println("<!DOCTYPE html><html><head><title>Servlet NewServlet</title></head><body>");
+        /***Считывание таблицы***/
+        List<Constructor> list = db.readTable();
 
-            /*if(log.equals("Admin") && pass.equals("1111")){
-                out.println("<h1>Hello, " + request.getParameter("login") + "</h1>");
+        for (int i = 0; i<list.size(); i++){
+
+            String dbNames = list.get(i).getName().toString();
+            String dbPasswords = list.get(i).getPass().toString();
+
+            if (login.equals(dbNames) && password.equals(dbPasswords)){
+
+                out.println("<!DOCTYPE html><html><head><title>Successful authorization</title></head><body>");
+                out.println("<h1>Hello, " + login + "! </h1><br><h2>Authorization completed successfully.</h1>");
+                out.println("<br><a href=\"http://localhost:8080/game.html\"><h3>Let's play!</h3></a>");
+                out.println("</body></html>");
+                break;
+
             } else{
-                out.println("<h1>Try again!</h1>");
-            }*/
-
-            if(conn != null){
-                out.println("<h1>Hello!!!</h1>");
-            } else{
-                out.println("<h1>Try again!</h1>");
+                out.println("<!DOCTYPE html><html><head><title>Successful authorization</title></head><body>");
+                out.println("<h1>Hello, " + login + "! </h1><br><h2>Ooops!</h1>");
+                out.println("<br><a href=\"http://localhost:8080/index.html\"><h3>Try again</h3></a>");
+                out.println("</body></html>");
             }
-
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
