@@ -42,15 +42,15 @@ public class NewServlet extends HttpServlet {
             if (login.equals(dbNames) && password.equals(dbPasswords)){
 
                 out.println("<!DOCTYPE html><html><head><title>Successful authorization</title></head><body>");
-                out.println("<h1>Hello, " + login + "! </h1><br><h2>Authorization completed successfully.</h1>");
-                out.println("<br><a href=\"http://localhost:8080/game.html\"><h3>Let's play!</h3></a>");
+                out.println("<h1>Hello, " + login + "! </h1><br><h2>Authorization completed successfully.</h2>");
+                out.println("<a href=\"http://localhost:8080/game.html\"><h3>Let's play!</h3></a>");
                 out.println("</body></html>");
                 break;
 
             } else{
                 out.println("<!DOCTYPE html><html><head><title>Successful authorization</title></head><body>");
-                out.println("<h1>Hello, " + login + "! </h1><br><h2>Ooops!</h1>");
-                out.println("<br><a href=\"http://localhost:8080/index.html\"><h3>Try again</h3></a>");
+                out.println("<h1>Hello, " + login + "! </h1><br><h2>Ooops!</h2>");
+                out.println("<a href=\"http://localhost:8080/index.html\"><h3>Try again</h3></a>");
                 out.println("</body></html>");
             }
         }
