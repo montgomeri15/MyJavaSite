@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 public class NewServlet extends HttpServlet {
 
     DbManager db = new DbManager();
-
     public static Connection connection;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
